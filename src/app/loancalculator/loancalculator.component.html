@@ -1,1 +1,38 @@
-<p>loancalculator works!</p>
+<form>
+  <div>
+    <label for="monthlyIncome">Monthly Income:</label>
+    <input
+      type="number"
+      class="form-control"
+      id="monthlyIncome"
+      placeholder="Monthly Income"
+    />
+    <label for="requestedAmount">Requested Amount:</label>
+    <input
+      type="number"
+      class="form-control"
+      id="requestedAmount"
+      placeholder="Requested Amount"
+    />
+    <label for="loanTerm">Loan Term:</label>
+    <input
+      type="number"
+      class="form-control"
+      id="loanTerm"
+      placeholder="Loan Term"
+    />
+    <label for="children">Children:</label>
+    <select class="form-control" id="children">
+      <option>None</option>
+      <option>Single</option>
+      <option>Multiple</option>
+    </select>
+    <label for="coapplicant">Coapplicant:</label>
+    <select class="form-control" id="coapplicant">
+      <option>None</option>
+      <option>Single Borrower</option>
+      <option>Multiple Borrowers</option>
+    </select>
+  </div>
+  <button type="submit">Calculate:</button>
+</form>
