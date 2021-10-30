@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="loancalculatorForm">
   <div>
     <label for="monthlyIncome">Monthly Income:</label>
     <input
@@ -6,6 +6,7 @@
       class="form-control"
       id="monthlyIncome"
       placeholder="Monthly Income"
+      formControlName="monthlyIncome"
     />
     <label for="requestedAmount">Requested Amount:</label>
     <input
@@ -13,6 +14,7 @@
       class="form-control"
       id="requestedAmount"
       placeholder="Requested Amount"
+      formControlName="requestedAmount"
     />
     <label for="loanTerm">Loan Term:</label>
     <input
@@ -20,15 +22,16 @@
       class="form-control"
       id="loanTerm"
       placeholder="Loan Term"
+      formControlName="loanTerm"
     />
     <label for="children">Children:</label>
-    <select class="form-control" id="children">
+    <select class="form-control" id="children" formControlName="children">
       <option>None</option>
       <option>Single</option>
       <option>Multiple</option>
     </select>
     <label for="coapplicant">Coapplicant:</label>
-    <select class="form-control" id="coapplicant">
+    <select class="form-control" id="coapplicant" formControlName="coapplicant">
       <option>None</option>
       <option>Single Borrower</option>
       <option>Multiple Borrowers</option>
