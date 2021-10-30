@@ -18,4 +18,8 @@ export class LoancalculatorComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  onSubmit() {
+    console.warn(this.loancalculatorForm.value);
+  }
 }
