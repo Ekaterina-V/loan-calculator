@@ -8,6 +8,21 @@
       placeholder="Monthly Income"
       formControlName="monthlyIncome"
     />
+    <div
+      *ngIf="
+        monthlyIncome &&
+        monthlyIncome.invalid &&
+        (monthlyIncome.dirty || monthlyIncome.touched)
+      "
+      class="alert alert-danger"
+    >
+      <div *ngIf="monthlyIncome.errors?.required">
+        Monthly Income is required.
+      </div>
+      <div *ngIf="monthlyIncome.errors?.min">
+        Monthly income must be at least 500.000.
+      </div>
+    </div>
     <label for="requestedAmount">Requested Amount:</label>
     <input
       type="number"
@@ -16,6 +31,21 @@
       placeholder="Requested Amount"
       formControlName="requestedAmount"
     />
+    <div
+      *ngIf="
+        requestedAmount &&
+        requestedAmount.invalid &&
+        (requestedAmount.dirty || requestedAmount.touched)
+      "
+      class="alert alert-danger"
+    >
+      <div *ngIf="requestedAmount.errors?.required">
+        Requested amount is required.
+      </div>
+      <div *ngIf="requestedAmount.errors?.min">
+        Requested amount must be at least 20.000.000.
+      </div>
+    </div>
     <label for="loanTerm">Loan Term:</label>
     <input
       type="number"
@@ -24,18 +54,56 @@
       placeholder="Loan Term"
       formControlName="loanTerm"
     />
+    <div
+      *ngIf="
+        loanTerm && loanTerm.invalid && (loanTerm.dirty || loanTerm.touched)
+      "
+      class="alert alert-danger"
+    >
+      <div *ngIf="loanTerm.errors?.required">
+        Requested loan term is required.
+      </div>
+      <div *ngIf="loanTerm.errors?.min">
+        Term of loan repayment must be from 36 to 360 months
+      </div>
+      <div *ngIf="loanTerm.errors?.max">
+        Term of loan repayment must be from 36 to 360 months
+      </div>
+    </div>
     <label for="children">Children:</label>
     <select class="form-control" id="children" formControlName="children">
       <option>None</option>
       <option>Single</option>
       <option>Multiple</option>
     </select>
+    <div
+      *ngIf="
+        children && children.invalid && (children.dirty || children.touched)
+      "
+      class="alert alert-danger"
+    >
+      <div *ngIf="children.errors?.required">
+        Complete the form to enable button.
+      </div>
+    </div>
     <label for="coapplicant">Coapplicant:</label>
     <select class="form-control" id="coapplicant" formControlName="coapplicant">
       <option>None</option>
       <option>Single Borrower</option>
       <option>Multiple Borrowers</option>
     </select>
+    <div
+      *ngIf="
+        coapplicant &&
+        coapplicant.invalid &&
+        (coapplicant.dirty || coapplicant.touched)
+      "
+      class="alert alert-danger"
+    >
+      <div *ngIf="coapplicant.errors?.required">
+        Complete the form to enable button.
+      </div>
+    </div>
   </div>
   <button type="submit" [disabled]="!loancalculatorForm.valid">
     Calculate:
