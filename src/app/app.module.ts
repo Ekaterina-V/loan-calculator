@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { LoancalculatorComponent } from './loancalculator/loancalculator.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoancalculatorComponent
   ],
   imports: [
     BrowserModule
