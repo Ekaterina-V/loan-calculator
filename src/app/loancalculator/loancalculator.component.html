@@ -108,4 +108,9 @@
   <button type="submit" [disabled]="!loancalculatorForm.valid">
     Calculate:
   </button>
+
+  <div *ngIf="response !== undefined">
+    <p>Loan amount: {{ response.loanAmount }}</p>
+    <p>Interest rate: {{ response.interestRate }}</p>
+  </div>
 </form>

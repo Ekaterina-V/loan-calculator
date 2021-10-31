@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { CalculatorService } from '../calculator.service';
+import { Payload } from '../payload';
 
 @Component({
   selector: 'app-loancalculator',
@@ -12,6 +14,9 @@ export class LoancalculatorComponent implements OnInit {
   minRequestedAmount = 20000000;
   minLoanTerm = 36;
   maxLoanTerm = 360;
+
+  error: undefined;
+  response: undefined;
 
   loancalculatorForm = new FormGroup({
     monthlyIncome: new FormControl(null, [
@@ -31,7 +36,7 @@ export class LoancalculatorComponent implements OnInit {
     coapplicant: new FormControl(null, Validators.required),
   });
 
-  constructor() {}
+  constructor(private calculatorService: CalculatorService) {}
 
   ngOnInit(): void {}
 
@@ -56,6 +61,21 @@ export class LoancalculatorComponent implements OnInit {
   }
 
   onSubmit() {
-    console.warn(this.loancalculatorForm.value);
+    console.warn('onSubmit: ', this.loancalculatorForm.value);
+
+    this.calculatorService
+      .submitForm(this.loancalculatorForm.value as Payload)
+      .subscribe((response) => {
+        console.log('onSubmit response: ', response);
+
+        this.error = undefined;
+        this.response = undefined;
+
+        if (response.error) {
+          this.error = response.error;
+        } else {
+          this.response = response;
+        }
+      });
   }
 }
