@@ -17,10 +17,10 @@
       class="alert alert-danger"
     >
       <div *ngIf="monthlyIncome.errors?.required">
-        Monthly Income is required.
+        Monthly income is required.
       </div>
       <div *ngIf="monthlyIncome.errors?.min">
-        Monthly income must be at least 500.000.
+        Monthly income must be at least {{ minMonthlyIncome }}.
       </div>
     </div>
     <label for="requestedAmount">Requested Amount:</label>
@@ -43,7 +43,7 @@
         Requested amount is required.
       </div>
       <div *ngIf="requestedAmount.errors?.min">
-        Requested amount must be at least 20.000.000.
+        Requested amount must be at least {{ minRequestedAmount }}.
       </div>
     </div>
     <label for="loanTerm">Loan Term:</label>
@@ -61,13 +61,13 @@
       class="alert alert-danger"
     >
       <div *ngIf="loanTerm.errors?.required">
-        Requested loan term is required.
+        Loan term is required.
       </div>
       <div *ngIf="loanTerm.errors?.min">
-        Term of loan repayment must be from 36 to 360 months
+        Loan term must be at least {{ minLoanTerm }}.
       </div>
       <div *ngIf="loanTerm.errors?.max">
-        Term of loan repayment must be from 36 to 360 months
+        Loan term must be at most {{ maxLoanTerm }}.
       </div>
     </div>
     <label for="children">Children:</label>

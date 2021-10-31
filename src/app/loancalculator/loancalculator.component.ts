@@ -8,22 +8,27 @@ import { Validators } from '@angular/forms';
   styleUrls: ['./loancalculator.component.css'],
 })
 export class LoancalculatorComponent implements OnInit {
+  minMonthlyIncome = 500000;
+  minRequestedAmount = 20000000;
+  minLoanTerm = 36;
+  maxLoanTerm = 360;
+
   loancalculatorForm = new FormGroup({
-    monthlyIncome: new FormControl('', [
+    monthlyIncome: new FormControl(null, [
       Validators.required,
-      Validators.min(500000),
+      Validators.min(this.minMonthlyIncome),
     ]),
-    requestedAmount: new FormControl('', [
+    requestedAmount: new FormControl(null, [
       Validators.required,
-      Validators.min(20000000),
+      Validators.min(this.minRequestedAmount),
     ]),
-    loanTerm: new FormControl('', [
+    loanTerm: new FormControl(null, [
       Validators.required,
-      Validators.min(36),
-      Validators.max(360),
+      Validators.min(this.minLoanTerm),
+      Validators.max(this.maxLoanTerm),
     ]),
-    children: new FormControl('', Validators.required),
-    coapplicant: new FormControl('', Validators.required),
+    children: new FormControl(null, Validators.required),
+    coapplicant: new FormControl(null, Validators.required),
   });
 
   constructor() {}
