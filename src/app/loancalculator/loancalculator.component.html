@@ -116,7 +116,7 @@
   </div>
 
   <div *ngIf="response !== undefined">
-    <p>Loan amount: {{ response.loanAmount }}</p>
-    <p>Interest rate: {{ response.interestRate }}</p>
+    <p>Loan amount: {{ response.loanAmount / 1000 }}</p>
+    <p>Interest rate: {{ response.interestRate / 1000 }} %</p>
   </div>
 </form>
