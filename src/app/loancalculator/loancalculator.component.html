@@ -109,6 +109,12 @@
     Calculate:
   </button>
 
+  <div *ngIf="errors.length > 0">
+    <div *ngFor="let e of errors">
+      <p>{{ e.message }}</p>
+    </div>
+  </div>
+
   <div *ngIf="response !== undefined">
     <p>Loan amount: {{ response.loanAmount }}</p>
     <p>Interest rate: {{ response.interestRate }}</p>

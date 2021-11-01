@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { Payload } from './payload';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -20,15 +20,10 @@ export class CalculatorService {
 
   submitForm(payload: Payload): Observable<any> {
     return this.http.post<Payload>(this.url, payload, this.httpOptions).pipe(
-      tap((_) => console.log('submited payload')),
-      catchError(this.handleError())
+      catchError((errorResponse) => {
+        console.error(errorResponse);
+        return throwError(errorResponse.error.fields);
+      })
     );
-  }
-
-  private handleError() {
-    return (error: any) => {
-      console.error(error);
-      return of(error);
-    };
   }
 }
