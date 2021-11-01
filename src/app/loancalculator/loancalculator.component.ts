@@ -18,6 +18,9 @@ export class LoancalculatorComponent implements OnInit {
   error: undefined;
   response: undefined;
 
+  childrenOptions = ['NONE', 'SINGLE', 'MULTIPLE'];
+  coapplicantOptions = ['NONE', 'SINGLE_BORROWER', 'MULTIPLE_BORROWERS'];
+
   loancalculatorForm = new FormGroup({
     monthlyIncome: new FormControl(null, [
       Validators.required,

@@ -72,9 +72,9 @@
     </div>
     <label for="children">Children:</label>
     <select class="form-control" id="children" formControlName="children">
-      <option>None</option>
-      <option>Single</option>
-      <option>Multiple</option>
+      <option *ngFor="let options of childrenOptions" [value]="options">
+        {{ options }}
+      </option>
     </select>
     <div
       *ngIf="
@@ -88,9 +88,9 @@
     </div>
     <label for="coapplicant">Coapplicant:</label>
     <select class="form-control" id="coapplicant" formControlName="coapplicant">
-      <option>None</option>
-      <option>Single Borrower</option>
-      <option>Multiple Borrowers</option>
+      <option *ngFor="let options of coapplicantOptions" [value]="options">
+        {{ options }}
+      </option>
     </select>
     <div
       *ngIf="
