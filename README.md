@@ -1,5 +1,11 @@
 # LoanCalculator
 
+Loan calculator:
+
+- is based on Angular;
+- handles both frontend and backend errors;
+- includes unit tests.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.11.
 
 ## Development server
