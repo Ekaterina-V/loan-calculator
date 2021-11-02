@@ -1,3 +1,5 @@
+<h2>Loan calculator</h2>
+
 <form [formGroup]="loancalculatorForm" (ngSubmit)="onSubmit()">
   <div>
     <label for="monthlyIncome">Monthly Income:</label>
@@ -116,7 +118,9 @@
   </div>
 
   <div *ngIf="response !== undefined">
-    <p>Loan amount: {{ response.loanAmount / 1000 }}</p>
-    <p>Interest rate: {{ response.interestRate / 1000 }} %</p>
+    <p class="loan-amount">Loan amount: {{ response.loanAmount / 1000 }}</p>
+    <p class="interest-rate">
+      Interest rate: {{ response.interestRate / 1000 }} %
+    </p>
   </div>
 </form>
