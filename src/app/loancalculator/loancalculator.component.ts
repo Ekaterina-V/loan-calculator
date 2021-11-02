@@ -10,8 +10,8 @@ import { Payload } from '../payload';
   styleUrls: ['./loancalculator.component.css'],
 })
 export class LoancalculatorComponent implements OnInit {
-  minMonthlyIncome = 500000;
-  minRequestedAmount = 20000000;
+  minMonthlyIncome = 500;
+  minRequestedAmount = 20000;
   minLoanTerm = 36;
   maxLoanTerm = 360;
 
@@ -66,18 +66,22 @@ export class LoancalculatorComponent implements OnInit {
   onSubmit() {
     console.warn('onSubmit: ', this.loancalculatorForm.value);
 
+    let payload = {
+      ...this.loancalculatorForm.value,
+      monthlyIncome: this.loancalculatorForm.value.monthlyIncome * 1000,
+      requestedAmount: this.loancalculatorForm.value.requestedAmount * 1000,
+    };
+
     this.errors = null;
     this.response = null;
 
-    this.calculatorService
-      .submitForm(this.loancalculatorForm.value as Payload)
-      .subscribe(
-        (response) => {
-          this.response = response;
-        },
-        (errors) => {
-          this.errors = errors;
-        }
-      );
+    this.calculatorService.submitForm(payload as Payload).subscribe(
+      (response) => {
+        this.response = response;
+      },
+      (errors) => {
+        this.errors = errors;
+      }
+    );
   }
 }
