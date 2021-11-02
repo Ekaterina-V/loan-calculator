@@ -22,7 +22,11 @@ export class CalculatorService {
     return this.http.post<Payload>(this.url, payload, this.httpOptions).pipe(
       catchError((errorResponse) => {
         console.error(errorResponse);
-        return throwError(errorResponse.error.fields);
+        if (errorResponse.error.fields) {
+          return throwError(errorResponse.error.fields);
+        } else {
+          return throwError([]);
+        }
       })
     );
   }

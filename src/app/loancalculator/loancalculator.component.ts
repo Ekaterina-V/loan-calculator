@@ -15,8 +15,8 @@ export class LoancalculatorComponent implements OnInit {
   minLoanTerm = 36;
   maxLoanTerm = 360;
 
-  errors = [];
-  response: undefined;
+  errors = null;
+  response = null;
 
   childrenOptions = ['NONE', 'SINGLE', 'MULTIPLE'];
   coapplicantOptions = ['NONE', 'SINGLE_BORROWER', 'MULTIPLE_BORROWERS'];
@@ -66,8 +66,8 @@ export class LoancalculatorComponent implements OnInit {
   onSubmit() {
     console.warn('onSubmit: ', this.loancalculatorForm.value);
 
-    this.errors = [];
-    this.response = undefined;
+    this.errors = null;
+    this.response = null;
 
     this.calculatorService
       .submitForm(this.loancalculatorForm.value as Payload)
