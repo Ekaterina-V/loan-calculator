@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class CalculatorService {
-  private url = 'https://homework.fdp.workers.dev/';
+  url = 'https://homework.fdp.workers.dev/';
 
   httpOptions = {
     headers: new HttpHeaders({
