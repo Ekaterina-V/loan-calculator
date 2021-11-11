@@ -99,10 +99,8 @@
   </button>
 
   <div *ngIf="errors !== null">
-    <div *ngIf="errors.length > 0">
-      <div *ngFor="let e of errors">
-        <p>{{ e.message }}</p>
-      </div>
+    <div *ngFor="let e of errors">
+      <p>{{ e.message }}</p>
     </div>
 
     <div *ngIf="errors.length == 0">
