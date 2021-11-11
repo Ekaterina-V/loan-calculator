@@ -12,9 +12,7 @@
     />
     <div
       *ngIf="
-        monthlyIncome &&
-        monthlyIncome.invalid &&
-        (monthlyIncome.dirty || monthlyIncome.touched)
+        monthlyIncome.invalid && (monthlyIncome.dirty || monthlyIncome.touched)
       "
       class="alert alert-danger"
     >
@@ -35,7 +33,6 @@
     />
     <div
       *ngIf="
-        requestedAmount &&
         requestedAmount.invalid &&
         (requestedAmount.dirty || requestedAmount.touched)
       "
@@ -57,14 +54,10 @@
       formControlName="loanTerm"
     />
     <div
-      *ngIf="
-        loanTerm && loanTerm.invalid && (loanTerm.dirty || loanTerm.touched)
-      "
+      *ngIf="loanTerm.invalid && (loanTerm.dirty || loanTerm.touched)"
       class="alert alert-danger"
     >
-      <div *ngIf="loanTerm.errors?.required">
-        Loan term is required.
-      </div>
+      <div *ngIf="loanTerm.errors?.required">Loan term is required.</div>
       <div *ngIf="loanTerm.errors?.min">
         Loan term must be at least {{ minLoanTerm }}.
       </div>
@@ -79,9 +72,7 @@
       </option>
     </select>
     <div
-      *ngIf="
-        children && children.invalid && (children.dirty || children.touched)
-      "
+      *ngIf="children.invalid && (children.dirty || children.touched)"
       class="alert alert-danger"
     >
       <div *ngIf="children.errors?.required">
@@ -95,11 +86,7 @@
       </option>
     </select>
     <div
-      *ngIf="
-        coapplicant &&
-        coapplicant.invalid &&
-        (coapplicant.dirty || coapplicant.touched)
-      "
+      *ngIf="coapplicant.invalid && (coapplicant.dirty || coapplicant.touched)"
       class="alert alert-danger"
     >
       <div *ngIf="coapplicant.errors?.required">
