@@ -68,6 +68,30 @@ describe('LoancalculatorComponent', () => {
     expect(label.textContent).toEqual('Requested Amount:');
   });
 
+  it('should find loan-term label', () => {
+    const el: HTMLElement = fixture.debugElement.nativeElement;
+    const label = el.querySelectorAll('label')[2];
+    expect(label.textContent).toEqual('Loan Term:');
+  });
+
+  it('should find children label', () => {
+    const el: HTMLElement = fixture.debugElement.nativeElement;
+    const label = el.querySelectorAll('label')[3];
+    expect(label.textContent).toEqual('Children:');
+  });
+
+  it('should find children label', () => {
+    const el: HTMLElement = fixture.debugElement.nativeElement;
+    const label = el.querySelectorAll('label')[4];
+    expect(label.textContent).toEqual('Coapplicant:');
+  });
+
+  it('should find calculate button', () => {
+    const el: HTMLElement = fixture.debugElement.nativeElement;
+    const button = el.querySelectorAll('button')[0];
+    expect(button.textContent).toEqual(' Calculate: ');
+  });
+
   it('should call submitForm() on submit', () => {
     component.onSubmit();
 
